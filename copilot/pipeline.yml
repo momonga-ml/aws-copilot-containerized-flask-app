@@ -1,7 +1,7 @@
 # This YAML file defines the relationship and deployment ordering of your environments.
 
 # The name of the pipeline
-name: pipeline-sharina-ecs-copilot-flask-app
+name: pipeline-sharina-ecs-copilot-aws-copilot-containerized-flask-app
 
 # The version of the schema used in this template
 version: 1
@@ -17,7 +17,7 @@ source:
     branch: main
     repository: https://github.com/SharinaS/aws-copilot-containerized-flask-app
     # Optional: specify the name of an existing CodeStar Connections connection.
-    # connection_name: a-connection
+    connection_name: copilot-Shari-aws-copilot-contai
 
 # The deployment section defines the order the pipeline will deploy
 # to your environments.
