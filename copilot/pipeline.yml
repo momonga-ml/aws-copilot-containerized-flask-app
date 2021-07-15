@@ -1,7 +1,7 @@
 # This YAML file defines the relationship and deployment ordering of your environments.
 
 # The name of the pipeline
-name: pipeline-sharina-ecs-copilot-aws-copilot-containerized-flask-app
+name: pipeline-sharina-ecs-copilot-flask-app
 
 # The version of the schema used in this template
 version: 1
