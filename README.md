@@ -71,6 +71,14 @@ Run `copilot svc init` to create the manifest file and tell it where the docker 
 
 You'll have one stackset and three stacks deployed in your CloudFormation console, and your command line should produce a URL to view your app.
 
+## Add AWS CodePipeline
+
+Copilot can build an AWS CodePipeline for your app. I used GitHub as my version control.
+
+Make sure all the code thus far is nicely stored in a GitHub repo. Run `copilot pipeline init`, which will create a pipeline yaml file and a buildspec file for the pipeline. Then, push the updated code changes to the repo.
+
+To deploy the resources into AWS and be prompted to set up a CodeStar Connection (unless you already added a connection to your pipeline file), run `copilot pipeline update` to build the pipeline. When you create a connection when prompted, if you need to delete a pipeline with copilot, the connection will also be conveniently deleted.
+
 ## Commands
 
 To build it all, use `copilot init`.
