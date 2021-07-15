@@ -69,6 +69,8 @@ Run `copilot env init` to create a name for the environment, ie test. It gives t
 
 Run `copilot svc init` to create the manifest file and tell it where the docker file is. This is the command that creates a new service to run your code. It will also create an ECR repository for the service. Then, run `copilot svc deploy`.
 
+You'll have one stackset and three stacks deployed in your CloudFormation console, and your command line should produce a URL to view your app.
+
 ## Commands
 
 To build it all, use `copilot init`.
