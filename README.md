@@ -35,6 +35,7 @@ Deployed the app with `copilot init` and updated it with `copilot svc deploy` wh
 
 
 About ports and exposing them:
+
 * https://docs.docker.com/language/python/run-containers/
 
 ### Flask and Docker Documentation
@@ -43,6 +44,10 @@ About ports and exposing them:
 * Docker and Flask - https://docs.docker.com/language/python/build-images/
 
 ## Deployment Options
+
+You can either build everything from scratch, including a VPC, or you can build your ECS-related resources and add them to an existing VPC.
+
+### Create All New Resources
 
 Deploy using the terminal, with the command `copilot init`, and follow the prompts.
 
@@ -55,6 +60,14 @@ copilot init --app [name-of-the-application] \
   --dockerfile "./Dockerfile" \
   --deploy
   ```
+
+### Deploy Into An Already existing VPC
+
+Run `copilot app init`, which created copilot/workspace file, and deployed a couple IAM roles into AWS.
+
+Run `copilot env init` to create a name for the environment, ie test. It gives the option to create a new VPC etc, or import an existing VPC and subnets. It provides the VPC names from the account to choose from. A stackset is then deployed to AWS, as well as a cloudformation template with a cluster, IAM and security group resources, etc.
+
+Run `copilot svc init` to create the manifest file and tell it where the docker file is. This is the command that creates a new service to run your code. It will also create an ECR repository for the service. Then, run `copilot svc deploy`.
 
 ## Commands
 
