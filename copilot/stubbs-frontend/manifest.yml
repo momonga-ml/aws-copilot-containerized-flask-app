@@ -1,6 +1,7 @@
 # The manifest for the "stubbs-frontend" service.
 # Read the full specification for the "Load Balanced Web Service" type at:
 #  https://aws.github.io/copilot-cli/docs/manifest/lb-web-service/
+# After changing the manifest, deploy the updates with "copilot svc deploy"
 
 # Your service name will be used in naming your resources like log groups, ECS services, etc.
 name: stubbs-frontend
@@ -23,7 +24,10 @@ image:
 
 cpu: 256       # Number of CPU units for the task.
 memory: 512    # Amount of memory in MiB used by the task.
-count: 1       # Number of tasks that should be running in your service.
+# count: 3       # Number of tasks that should be running in your service.
+count:
+  range: 1-10
+  cpu_percentage: 10 # anytime the average cpu percentage is over 10%, scale up
 exec: true     # Enable running commands in your container.
 
 # Optional fields for more advanced use-cases.

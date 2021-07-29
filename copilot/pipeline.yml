@@ -17,7 +17,7 @@ source:
     branch: main
     repository: https://github.com/SharinaS/aws-copilot-containerized-flask-app
     # Optional: specify the name of an existing CodeStar Connections connection.
-    connection_name: copilot-Shari-aws-copilot-contai
+    # connection_name: connection-name-here
 
 # The deployment section defines the order the pipeline will deploy
 # to your environments.
