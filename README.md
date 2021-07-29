@@ -221,7 +221,7 @@ While clusters is chosen in from the dropdown, look near the bottom of the page 
 
 ## Load Testing
 
-There are two easy-to-implement load testing options - Hey and Siege. I went with Hey, but if you'd prefer to try Siege, install with Homebrew grab the ALB URL and run with the following command:
+Here are two easy-to-implement load testing options - Hey and Siege. I went with Hey, but if you'd prefer to try Siege, install with Homebrew grab the ALB URL and run with the following command:
 
 ```bash
 siege -c 200 -i $alb_url
