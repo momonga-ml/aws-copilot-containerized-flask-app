@@ -1,3 +1,29 @@
+# Setup steps
+
+1. Create the application (need test env or other)
+2. Then create the pipleine
+3. Update docs to github
+4. Update the pipeline, should kick off
+
+```
+copilot app init
+copilot init --app flask-app --name flask-app --type "Load Balanced Web Service" --dockerfile "./Dockerfile" --deploy
+copilot pipeline init
+git add .  && git commit -m "Adding pipeline artifacts" && git push
+copilot pipeline update
+copilot pipeline status
+```
+
+\*need `.workspace` file in there too, not just yaml
+
+To confirm that build of infra done
+
+```
+copilot svc package --output-dir infrastructure/
+copilot svc ls --local --json
+copilot env ls --json
+```
+
 # ECS Copilot Flask App
 
 This repo explores using AWS Copilot to deploy a simple Flask app. It additionally automates development with the a CodePipeline set up by Copilot.
@@ -39,12 +65,12 @@ Deployed the app with `copilot init` and updated it with `copilot svc deploy` wh
 
 About ports and exposing them:
 
-* https://docs.docker.com/language/python/run-containers/
+- https://docs.docker.com/language/python/run-containers/
 
 ### Flask and Docker Documentation
 
-* Flask quickstart - https://flask.palletsprojects.com/en/1.1.x/quickstart/
-* Docker and Flask - https://docs.docker.com/language/python/build-images/
+- Flask quickstart - https://flask.palletsprojects.com/en/1.1.x/quickstart/
+- Docker and Flask - https://docs.docker.com/language/python/build-images/
 
 ## Deployment Options
 
@@ -62,7 +88,7 @@ copilot init --app [name-of-the-application] \
   --type "Load Balanced Web Service" \
   --dockerfile "./Dockerfile" \
   --deploy
-  ```
+```
 
 ### Deploy Into An Already existing VPC
 
@@ -236,6 +262,7 @@ If on a Mac, use Homebrew to install: `brew install hey`. It will take a few min
 ```bash
 hey -z 20m http://shari-Publi-7NOS5W3L1E5V-1195326126.us-west-2.elb.amazonaws.com
 ```
+
 Check the ECS console, CloudWatch alarms, CloudWatch Insights and use the terminal to get Copilot to produce lots of data using `copilot svc show` and `copilot svc status`.
 
 After about 20 minutes, hey will produce a report in the terminal with a summary of the test.
